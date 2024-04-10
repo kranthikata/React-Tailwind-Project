@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUpPage from './pages/SignUpPage';
 import CreateProfile from './pages/CreateProfile';
 import SelectPurpose from './pages/SelectPurpose';
+import MainNavBar from './components/MainNavBar';
+import VerifyEmail from './pages/VerifyEmail';
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
         <Route path="/" element={<SignUpPage/>} />
         <Route path="/create-profile" element={<CreateProfile/>} />
         <Route path="/select-purpose" element={<SelectPurpose/>} />
+        <Route path="/verify-email" element={<VerifyEmail/>} />
         </Routes>
     </Router>
   );

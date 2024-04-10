@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 
 const SignUpForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    username: '',
-    email: '',
-    password: '',
-    termsChecked: false,
+  const [formData, setFormData] = useState(() => {
+    const storedFormData = JSON.parse(localStorage.getItem('signupFormData'));
+    return storedFormData || {
+      name: '',
+      username: '',
+      email: '',
+      password: '',
+      termsChecked: false,
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem('signupFormData', JSON.stringify(formData));
+  }, [formData]);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('signupFormData');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   const [errors, setErrors] = useState({});
   const [isFilled, setIsFilled] = useState(false);

@@ -24,7 +24,7 @@ const SelectPurpose = () => {
     };
 
     const handleButtonClick = () => {
-        navigate('/verifyemail');
+        navigate('/verify-email');
     };
 
     return (

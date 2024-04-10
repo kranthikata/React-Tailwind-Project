@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/Navbar';
 import Button from '../components/Button';
 import Dropdown from '../components/DropDown';
@@ -11,12 +11,22 @@ import image5 from '../assets/images/Image5.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const CreateProfile = () => {
-  const [avatarImage, setAvatarImage] = useState(null);
+  const [avatarImage, setAvatarImage] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [location, setLocation] = useState('');
   const [isFilled, setIsFilled] = useState(false);
   const images = [image1, image2, image3, image4, image5];
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedAvatarImage = localStorage.getItem('avatarImage');
+    const storedLocation = localStorage.getItem('location');
+    if (storedAvatarImage && storedLocation) {
+      setAvatarImage(storedAvatarImage);
+      setLocation(storedLocation);
+      setIsFilled(true);
+    }
+  }, []);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -51,6 +61,8 @@ const CreateProfile = () => {
   const checkIsFilled = () => {
     if (avatarImage && location) {
       setIsFilled(true);
+      localStorage.setItem('avatarImage', avatarImage);
+      localStorage.setItem('location', location);
     } else {
       setIsFilled(false);
     }
