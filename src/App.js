@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUpPage from './pages/SignUpPage';
 import CreateProfile from './pages/CreateProfile';
 import SelectPurpose from './pages/SelectPurpose';
-import MainNavBar from './components/MainNavBar';
 import VerifyEmail from './pages/VerifyEmail';
 
 
