@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/React-Tailwind-Project/static/css/main.9076df31.css",
+    "main.js": "/React-Tailwind-Project/static/js/main.edba019a.js",
+    "static/js/453.d1ead18a.chunk.js": "/React-Tailwind-Project/static/js/453.d1ead18a.chunk.js",
+    "static/media/Image2.jpg": "/React-Tailwind-Project/static/media/Image2.98ac249a7d8cb2ee1453.jpg",
+    "static/media/Image3.jpg": "/React-Tailwind-Project/static/media/Image3.e74246540b9b84c6abd9.jpg",
+    "static/media/Image1.jpg": "/React-Tailwind-Project/static/media/Image1.c00892443984e72b4f9d.jpg",
+    "static/media/SignUpImage.jpg": "/React-Tailwind-Project/static/media/SignUpImage.4ff574d2bcc9f7e82603.jpg",
+    "static/media/Image4.jpg": "/React-Tailwind-Project/static/media/Image4.922233c8ad36f8a3c111.jpg",
+    "static/media/Image5.jpg": "/React-Tailwind-Project/static/media/Image5.fa2d9a6017df3e3ae35e.jpg",
+    "static/media/ShareMyWork.png": "/React-Tailwind-Project/static/media/ShareMyWork.e346750d8542cc715c48.png",
+    "static/media/dribble-logo.png": "/React-Tailwind-Project/static/media/dribble-logo.126ba10ba82d84669cb5.png",
+    "static/media/designInspiration.png": "/React-Tailwind-Project/static/media/designInspiration.d1645bd12335c1456c59.png",
+    "static/media/hiringDesigner.png": "/React-Tailwind-Project/static/media/hiringDesigner.abf4380d51be4853bea6.png",
+    "static/media/UploadIcon.svg": "/React-Tailwind-Project/static/media/UploadIcon.6fa6056eb19ea693bacd29d3029dafb1.svg",
+    "index.html": "/React-Tailwind-Project/index.html",
+    "main.9076df31.css.map": "/React-Tailwind-Project/static/css/main.9076df31.css.map",
+    "main.edba019a.js.map": "/React-Tailwind-Project/static/js/main.edba019a.js.map",
+    "453.d1ead18a.chunk.js.map": "/React-Tailwind-Project/static/js/453.d1ead18a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9076df31.css",
+    "static/js/main.edba019a.js"
+  ]
+}
