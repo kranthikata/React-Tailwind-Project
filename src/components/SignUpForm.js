@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState(() => {
-    const storedFormData = JSON.parse(localStorage.getItem('signupFormData'));
-    return storedFormData || {
+    return {
       name: '',
       username: '',
       email: '',
@@ -14,21 +13,6 @@ const SignUpForm = () => {
     };
   });
 
-  useEffect(() => {
-    localStorage.setItem('signupFormData', JSON.stringify(formData));
-  }, [formData]);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.removeItem('signupFormData');
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
 
   const [errors, setErrors] = useState({});
   const [isFilled, setIsFilled] = useState(false);
@@ -107,28 +91,28 @@ const SignUpForm = () => {
           <div className="flex flex-wrap -mx-3 mb-5">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-1">Name</label>
-              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
+              <input type="text" id="name" placeholder="Name" name="name" value={formData.name} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
               {errors.name && <p className="text-red-500 mt-1">{errors.name}</p>}
             </div>
             <div className="w-full md:w-1/2 px-3">
               <label htmlFor="username" className="block text-sm font-bold text-gray-700 mb-1">Username</label>
-              <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
+              <input type="text" id="username" placeholder="Username" name="username" value={formData.username} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
               {errors.username && <p className="text-red-500 mt-1">{errors.username}</p>}
             </div>
           </div>
           <div className="mb-5">
             <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-1">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
+            <input type="email" id="email" placeholder="Ex:example@example.com" name="email" value={formData.email} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
             {errors.email && <p className="text-red-500 mt-1">{errors.email}</p>}
           </div>
           <div className="mb-5">
             <label htmlFor="password" className="block text-sm font-bold text-gray-700 mb-1">Password</label>
-            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
+            <input type="password" id="password" placeholder="6+ Characters" name="password" value={formData.password} onChange={handleChange} required className="w-full h-9 border rounded-md bg-white focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:shadow-md" />
             {errors.password && <p className="text-red-500 mt-1">{errors.password}</p>}
           </div>
           <div className="mb-5 flex items-start">
             <input type="checkbox" id="terms" name="termsChecked" checked={formData.termsChecked} onChange={handleChange} className="h-5 w-5 mr-2" required />
-            <label htmlFor="terms" className="text-xs text-gray-700">Creating an account means you're okay with our <a href="#!" className="text-blue-500">Terms of Services, Privacy Policy,</a> and our default <a href="#!" className="text-blue-500">Notification Settings.</a></label>
+            <label htmlFor="terms" className="text-xs text-gray-700 cursor-pointer">Creating an account means you're okay with our <a href="#!" className="text-blue-500">Terms of Services, Privacy Policy,</a> and our default <a href="#!" className="text-blue-500">Notification Settings.</a></label>
             {errors.termsChecked && <p className="text-red-500 mt-1">{errors.termsChecked}</p>}
           </div>
           <Button isFilled = {isFilled} type="submit">Create Account</Button>
